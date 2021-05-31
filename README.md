@@ -43,11 +43,11 @@ ae.solve()
 ```
 
 ## How To Use
-Can run through configuration files. See example configs/frost.json file.
+Can run through configuration files. See example configs/frost.json file. Set simulated_element to null if you would like to NOT backtest (AKA you are trying for new elements that have not been discovered).
 
 ```json
 {
-    "simulated_element": "FROST", // Set simulated_element to null if you would like to NOT backtest.
+    "simulated_element": "FROST",
     "inclusion_constraints": [
         ["WATER", "DEW"]
     ],
