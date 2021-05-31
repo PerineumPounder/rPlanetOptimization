@@ -25,10 +25,22 @@ db = Database(csv_path="data/alchemy_table.csv", simulated_element=None)
 
 ## Alchemy Engine
 Given a set of constraints this will solve for all attempts that are still available to try.
+```python
+ae = AlchemyEngine(db=db)
+```
+Pass in a database with a "simulated_element" if you would like to backtest solutions.
 
-## Constraints
-
-The goal is to narrow down your search space. in
+### Constraints
+The goal is to narrow down your search space. Constrain your search space with the following sets of rules.
+```python
+ae.add_inclusion_constraint(("WATER", "DEW"))  # All combinations must include a water OR a dew.
+ae.add_exclusion_constraint(("WATER", "DEW"))  # All combinations must not include BOTH water AND dew.
+ae.add_quantity_constraint("WATER", lower_bound=1, upper_bound=3)  # All combinations can have between 1 and 3 waters.
+```
+Once constraints are added call solve to get possible recipes that have NOT been tried.
+```python
+ae.solve()
+```
 
 ## How To Backtest
 
