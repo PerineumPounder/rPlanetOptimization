@@ -43,8 +43,29 @@ ae.solve()
 ```
 
 ## How To Use
-Can run through configuration files.
+Can run through configuration files. See example configs/frost.json file.
 
 ```json
-python alchemy_engine.py --config=configs/frost.json
+{
+    "simulated_element": "FROST" // Set to null if you would like to not backtest,
+    "inclusion_constraints": [
+        ["WATER", "DEW"]
+    ],
+    "exclusion_constraints": [
+        ["WATER", "DEW"]
+    ],
+    "quantity_constraints": [
+        ["WATER", 0, 3],
+        ["DEW", 0, 3],
+        ["WIND", 0, 2],
+        ["MNTAIN", 0, 2],
+        ["ATMSPHE", 0, 2],
+        ["AIR", 0, 2]
+    ]
+}
 ```
+Then call the following to backtest your belief system.
+```bash
+python alchemy_engine.py --config=config/frost.json
+```
+
