@@ -9,19 +9,22 @@ db = Database(csv_path="data/alchemy_table.csv", simulated_element="FROST")
 ```
 The database allows you to "simulate" the environment at the time of discovery for a certain element. It lets you access the following attributes:
 ```python
-db.failed_attempts # All the failed attempts (up to the simulated element).
-db.element_costs # Cost of each element discovered (up to the simulated element).
-db.element_ids # ID's (such as "FROST" or "PRESS") of elements discovered (up to the simulated element).
+db.failed_attempts  # All the failed attempts (up to the simulated element).
+db.element_costs  # Cost of each element discovered (up to the simulated element).
+db.element_ids  # ID's (such as "FROST" or "PRESS") of elements discovered (up to the simulated element).
 ```
 The database also has access to all discovered recipes, will contain all discovered recipes regardless of whether you are trying to simulate an element or not.
 
 ```python
-db.recipes # Dictionary containing recipes keyed by element ID.
+db.recipes  # Dictionary containing recipes keyed by element ID.
 ```
 To not simulate an element (if you are trying to discover new elements) simply pass in a null value. 
 ```python
 db = Database(csv_path="data/alchemy_table.csv", simulated_element=None)
 ```
+
+## Alchemy Engine
+Given a set of constraints this will solve for all attempts that are still available to try.
 
 ## Constraints
 
