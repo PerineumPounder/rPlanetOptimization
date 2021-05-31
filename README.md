@@ -47,7 +47,7 @@ Can run through configuration files. See example configs/frost.json file.
 
 ```json
 {
-    "simulated_element": "FROST" // Set to null if you would like to not backtest,
+    "simulated_element": "FROST", // Set simulated_element to null if you would like to NOT backtest.
     "inclusion_constraints": [
         ["WATER", "DEW"]
     ],
