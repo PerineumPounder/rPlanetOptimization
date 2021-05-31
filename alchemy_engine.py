@@ -11,6 +11,12 @@ args, _ = parser.parse_known_args()
 
 
 RECIPE_AMOUNT = 4
+JSON_KEYS = [
+    "inclusion_constraints",
+    "exclusion_constraints",
+    "quantity_constraints",
+    "simulated_element"
+]
 
 
 def _find_subsets(ingredients, n):
@@ -86,6 +92,9 @@ class AlchemyEngine(object):
 def main():
     # Load config.
     config = json.load(open(args.path))
+    assert all(key in config.keys() for key in JSON_KEYS)
+
+    # Construct database.
     db = database.Database(
         csv_path="data/alchemy-table.csv",
         simulated_element=config["simulated_element"]
