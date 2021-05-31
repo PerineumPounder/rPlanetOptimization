@@ -69,7 +69,7 @@ Then call the following to backtest your belief system.
 python alchemy_engine.py --config=config/frost.json
 ```
 Sample Output:
-'''bash
+```bash
 ('BOILER', 'SWAMP', 'SWAMP', 'WATER') Cost: 1270000
 ('BOILER', 'PRESS', 'SWAMP', 'WATER') Cost: 1060000
 ('BOILER', 'SWAMP', 'WATER', 'WATER') Cost: 1030000
