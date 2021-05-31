@@ -42,8 +42,9 @@ Once constraints are added call solve to get possible recipes that have NOT been
 ae.solve()
 ```
 
-## How To Backtest
+## How To Use
+Can run through configuration files.
 
-```bash
+```json
 python alchemy_engine.py --config=configs/frost.json
 ```
