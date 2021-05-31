@@ -1,0 +1,17 @@
+{
+    "simulated_element": "FROST",
+    "inclusion_constraints": [
+        ["WATER", "DEW"]
+    ],
+    "exclusion_constraints": [
+        ["WATER", "DEW"]
+    ],
+    "quantity_constraints": [
+        ["WATER", 0, 3],
+        ["DEW", 0, 3],
+        ["WIND", 0, 2],
+        ["MNTAIN", 0, 2],
+        ["ATMSPHE", 0, 2],
+        ["AIR", 0, 2]
+    ]
+}

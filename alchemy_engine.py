@@ -1,6 +1,13 @@
 from collections import Counter
+import argparse
 import database
 import itertools
+import json
+
+
+parser = argparse.ArgumentParser(description='Alchemy bitch.')
+parser.add_argument("--path", type=str, help="Config file path.")
+args, _ = parser.parse_known_args()
 
 
 RECIPE_AMOUNT = 4
@@ -74,3 +81,31 @@ class AlchemyEngine(object):
             possibilities = possibilities_tmp
 
         return possibilities
+
+
+def main():
+    # Load config.
+    config = json.load(open(args.path))
+    db = database.Database(
+        csv_path="data/alchemy-table.csv",
+        simulated_element=config["simulated_element"]
+    )
+
+    # Construct constraints.
+    ae = AlchemyEngine(db)
+    for constraint in config["inclusion_constraints"]:
+        ae.add_inclusion_constraint(constraint)
+    for constraint in config["exclusion_constraints"]:
+        ae.add_exclusion_constraint(constraint)
+    for eid, lb, ub in config["quantity_constraints"]:
+        ae.add_quantity_constraint(eid, lb, ub)
+    solutions = ae.solve()
+
+    # Output possible solutions.
+    for solution in solutions:
+        cost = sum([db.element_costs[eid] for eid in solution])
+        print(solution, "Cost: %d" % cost)
+
+
+if __name__ == "__main__":
+    main()
