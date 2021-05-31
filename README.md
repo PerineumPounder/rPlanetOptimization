@@ -67,7 +67,7 @@ Can run through configuration files. See example configs/frost.json file. Set **
 Then call the following to backtest your belief system.
 ```bash
 python alchemy_engine.py --config=config/frost.json
-```bash
+```
 Sample Output:
 '''bash
 ('BOILER', 'SWAMP', 'SWAMP', 'WATER') Cost: 1270000
