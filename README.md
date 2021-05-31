@@ -1,6 +1,6 @@
 # rPlanetOptimization
 
-Organize element search space and allow you to backtest strategies.
+Organize element search space and allow you to backtest strategies. Donate to help a guppy out at **dvuee.wam**
 
 ## Database
 Wrapper on the csv file for attempts tried located here https://prospectors.online/alchemy/alchemy-table.csv. It is recommended that you keep this file up to date in your directory, just download it and replace the old one. To instantiate a database see below:
